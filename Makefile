@@ -1,6 +1,6 @@
 obj-m := calculator.o
 
-myled.ko: calculator.c
+calculator.ko: calculator.c
 	make -C /usr/src/linux-headers-`uname -r` M=`pwd` V=1 modules
 
 clean:
