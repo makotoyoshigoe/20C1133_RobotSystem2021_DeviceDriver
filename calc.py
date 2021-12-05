@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+POSITIVE_BIT = 12
+NEGATIVE_BIT = 4
+PERIOD = 2
 
 def convert_binary_int(dec):
     quo = dec
@@ -10,11 +13,10 @@ def convert_binary_int(dec):
         if quo < 1:
             binary.append(quo)
             break
-    #print(len(binary))
-    while len(binary) < 12:
+    while len(binary) < POSITIVE_BIT:
         binary.append(0)
     binary.reverse()
-    while len(binary) >= 13:
+    while len(binary) >= POSITIVE_BIT+1:
         binary.pop(0)
     return binary
 
@@ -23,22 +25,19 @@ def convert_binary(dec):
     p_float = dec - p_int
     f_bin = []
     i_bin = convert_binary_int(p_int)
-    i_bin.append(2)
-    cnt = 0
+    i_bin.append(PERIOD)
     quo = p_float
-    for i in range(4):
+    for i in range(NEGATIVE_BIT):
         quo *= 2
         f_bin.append(int(quo))
         quo -= 1 if quo >= 1 else 0
-    binary = i_bin + f_bin
-    return binary
+    return i_bin + f_bin
 
-def inverse_bit(arr):
+def complement(arr):
     for i in range(len(arr)):
-        if arr[i] == 0:
-            arr[i] = 1
-        elif arr[i] == 1:
-            arr[i] = 0
+        if arr[i] == PERIOD:
+            continue
+        arr[i] = 1 if arr[i] == 0 else 0
     for i in range(-1, -len(arr), -1):
         if arr[i] == 0:
             arr[i] = 1
@@ -54,7 +53,7 @@ def main():
         formula = input('input formula:')
         try:
             ans = eval(formula)
-            binary = inverse_bit(convert_binary(abs(ans))) if ans < 0 else convert_binary(ans)
+            binary = complement(convert_binary(abs(ans))) if ans < 0 else convert_binary(ans)
             print(f'ans={ans}, {binary}')
             with open(path, mode='w') as f:
                 for i in range(len(binary)):
