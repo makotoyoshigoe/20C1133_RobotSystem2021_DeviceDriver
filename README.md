@@ -15,9 +15,9 @@
 - 配線は以下の実際の写真と各LEDとGPIOピンの対応表を参照してください. 
 ### 実際に配線した写真
 ![figure](https://user-images.githubusercontent.com/91446273/145028123-3f1e35ad-0464-444b-ad85-98b0b1590e61.png)
-- 黄, オレンジ, 赤が整数部分を表す. 順番に1, 2, 3Byte目を表す. 
-- 緑は整数と小数の区切りのピリオドを表す. 
-- 青は小数部分を表す. 
+- 黄, オレンジ, 赤色のLEDが整数部分を表す. 順番に1, 2, 3Byte目を表す. 
+- 緑色のLEDは整数と小数の区切りのピリオドを表す. 
+- 青色のLEDは小数部分を表す. 
 ### 各LEDとGPIOピンの対応表
 - RaspberryPi4のピン配置は[こちら](https://www.raspberrypi.com/documentation/computers/os.html#gpio-and-the-40-pin-header)を参考にしてください. 
 
