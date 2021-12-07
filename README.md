@@ -54,5 +54,15 @@ python3 calc.py
 #input formula:
 ```
 ### 計算式を入力
+```sh
+input formula:29+3
+#ans=32, [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0] #10進数の解と2進数に変換したものを表示. 2はピリオドを表す. 
+input formula:3.6+7.8
+#ans=11.4, [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 2, 0, 1, 1, 0]
+input formula:2500+2100
+#計算結果が4096以上なので, エラー処理(LEDの点滅)を行う.
+input formula:w
+#LEDが順番に点灯する. waveの「w」. 
+input formula:q
+#終了する. 
 ```
-
