@@ -1,5 +1,5 @@
 # RobotSystem2021_DeviceDriver
-- RaspberryPi4を使用して, 入力した計算式の計算結果を, LEDを制御し, 2進数で表示するデバイスドライバを作成した. 4096未満の有理数を表示でき, 整数部分は3Byte, 小数部分は1Byteで表示する. 
+- RaspberryPi4を使用して, 入力した計算式の計算結果を, LEDを制御し, 2進数で表示するデバイスドライバを作成しました. 4096未満の有理数を表示でき, 整数部分は3Byte, 小数部分は1Byteで表します. 
 ---
 ## 動作環境
 - Ubuntu 20.04.3 LTS
@@ -15,9 +15,9 @@
 - 配線は以下の実際の写真と各LEDとGPIOピンの対応表を参照してください. 
 ### 実際に配線した写真
 ![figure](https://user-images.githubusercontent.com/91446273/145028123-3f1e35ad-0464-444b-ad85-98b0b1590e61.png)
-- 黄, オレンジ, 赤色のLEDが整数部分を表す. 順番に1, 2, 3Byte目を表す. 
-- 緑色のLEDは整数と小数の区切りのピリオドを表す. 
-- 青色のLEDは小数部分を表す. 
+- 黄, オレンジ, 赤色のLEDが整数部分を表す. 順番に1, 2, 3Byte目を表します. 
+- 緑色のLEDは整数と小数の区切りのピリオドを表しています. 
+- 青色のLEDは小数部分を表します. 
 ### 各LEDとGPIOピンの対応表
 - RaspberryPi4のピン配置は[こちら](https://www.raspberrypi.com/documentation/computers/os.html#gpio-and-the-40-pin-header)を参考にしてください. 
 
@@ -70,3 +70,4 @@ input formula:q
 ```
 ---
 # 実際に動かしている様子
+実際に動かしている様子の動画です. 画像をクリック/タップするとYouTubeで再生します. 
