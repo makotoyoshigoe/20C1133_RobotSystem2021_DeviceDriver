@@ -21,20 +21,20 @@ static dev_t dev;
 static struct cdev cdv;
 static struct class *cls = NULL;
 static volatile u32 *gpio_base = NULL;
-int pin[PIN] = {21, 20, 26, 16, 19, 13, 12, 6, 5, 25, 24, 23, 22, 27, 18, 17, 4};
+int pin[PIN] = {21, 20, 26, 16, 19, 13, 12, 6, 5, 25, 24, 23, 22, 27, 18, 17, 4}; //使用するピン番号
 static ssize_t calculator(struct file* filp, const char* buf, size_t count, loff_t* pos){
 	char c;
 	int i = 0, j = 0;
 	static int cnt = 0;
 	if(copy_from_user(&c, buf, sizeof(c))) return -EFAULT;
-	if(c == 'e'){
+	if(c == 'e'){ //エラー処理(点滅)
 		for(i = 0; i < 4; i++){
 			for(j = 0; j < PIN; j++) gpio_base[ON] = 1 << pin[j];
 			msleep(250);
 			for(j = 0; j < PIN; j++) gpio_base[OFF] = 1 << pin[j];
 			msleep(250);
 		}
-	}else if(c == 'w'){
+	}else if(c == 'w'){ //ウェーブ
 		for(i = 0; i < PIN; i++){
 			for(j = 0; j < PIN; j++){
 				if(j == i) gpio_base[ON] = 1 << pin[j];
@@ -49,7 +49,7 @@ static ssize_t calculator(struct file* filp, const char* buf, size_t count, loff
 			}
 			msleep(100);
 		}
-	}else{
+	}else{//入力された値が1の時点灯、2はピリオドとして点灯、それ以外は消灯
 		if(c == '1'|| c == '2') gpio_base[ON] = 1 << pin[cnt%PIN];
 		else gpio_base[OFF] = 1 << pin[cnt%PIN];
 		cnt++;
