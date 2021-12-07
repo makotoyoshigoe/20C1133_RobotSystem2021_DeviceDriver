@@ -2,6 +2,7 @@
 POSITIVE_BIT = 12
 NEGATIVE_BIT = 4
 PERIOD = 2
+ERR = 4096
 
 def convert_binary_int(dec):
     quo = dec
@@ -48,13 +49,19 @@ def complement(arr):
 
 def main():
     formula = ''
-    path = 'log.txt'
+    path = '/dev/calculator0'
     while formula != 'q':
         formula = input('input formula:')
         try:
-            ans = eval(formula)
-            binary = complement(convert_binary(abs(ans))) if ans < 0 else convert_binary(ans)
-            print(f'ans={ans}, {binary}')
+            if formula == 'w':
+                binary = 'w'
+            else:
+                ans = eval(formula)
+                if ans >= ERR:
+                    binary = 'e'
+                else:
+                    binary = complement(convert_binary(abs(ans))) if ans < 0 else convert_binary(ans)
+                    print(f'ans={ans}, {binary}')
             with open(path, mode='w') as f:
                 for i in range(len(binary)):
                     f.write(str(binary[i]))

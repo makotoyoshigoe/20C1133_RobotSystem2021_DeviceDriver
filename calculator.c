@@ -13,36 +13,59 @@ MODULE_AUTHOR("MakotoYoshigoe, RyuichiUeda");
 MODULE_DESCRIPTION("driver for LED control");
 MODULE_LICENSE("GPL");
 MODULE_VERSION("0.0.1");
+#define PIN 17
+#define ON 7
+#define OFF 10
 
 static dev_t dev;
 static struct cdev cdv;
 static struct class *cls = NULL;
 static volatile u32 *gpio_base = NULL;
-
-static ssize_t calculator(struct file* filp, const char* buf, size_t count, loff_t* pos){      
-       	char c[10]={};
-	if(copy_from_user(&c, buf, sizeof(char))) return -EFAULT;
-	printk(KERN_INFO "receive %s\n",c);
-	if(c[0] == '1'){
-		gpio_base[7] = 1 << 25;
-	}else if(c[0] == '0'){
-		gpio_base[10] = 1 << 25;
+int pin[PIN] = {21, 20, 26, 16, 19, 13, 12, 6, 5, 25, 24, 23, 22, 27, 18, 17, 4};
+static ssize_t calculator(struct file* filp, const char* buf, size_t count, loff_t* pos){
+	char c;
+	int i = 0, j = 0;
+	static int cnt = 0;
+	if(copy_from_user(&c, buf, sizeof(c))) return -EFAULT;
+	if(c == 'e'){
+		for(i = 0; i < 4; i++){
+			for(j = 0; j < PIN; j++) gpio_base[ON] = 1 << pin[j];
+			msleep(250);
+			for(j = 0; j < PIN; j++) gpio_base[OFF] = 1 << pin[j];
+			msleep(250);
+		}
+	}else if(c == 'w'){
+		for(i = 0; i < PIN; i++){
+			for(j = 0; j < PIN; j++){
+				if(j == i) gpio_base[ON] = 1 << pin[j];
+				else gpio_base[OFF] = 1 << pin[j];
+			}	
+			msleep(100);
+		}
+		for(i = PIN; i >= -1; i--){
+			for(j = PIN; j >= -1; j--){
+				if(j == i) gpio_base[ON] = 1 << pin[j];
+				else gpio_base[OFF] = 1 << pin[j];
+			}
+			msleep(100);
+		}
+	}else{
+		if(c == '1'|| c == '2') gpio_base[ON] = 1 << pin[cnt%PIN];
+		else gpio_base[OFF] = 1 << pin[cnt%PIN];
+		cnt++;
 	}
 	return 1;
 }
-
 static struct file_operations led_fops = {
 	.owner = THIS_MODULE,
-	.write = calculator
+	.write = calculator,
 };
 
 static int __init init_mod(void){
-	int retval;
-
+	int retval, i = 0;
 	gpio_base = ioremap_nocache(0xfe200000, 0xA0);
-	int gpio = 0;
-	for(gpio = 16; gpio < 28; gpio++){
-		const u32 led = gpio; //GPIOの番号
+	for(i = 0; i < PIN; i++){
+		const u32 led = pin[i]; //GPIOの番号
 	        const u32 index = led/10; //列
 		const u32 shift = (led%10)*3;//行
 		const u32 mask = ~(0x7 << shift);
@@ -67,6 +90,7 @@ static int __init init_mod(void){
 		return PTR_ERR(cls);
 	}
 	device_create(cls, NULL, dev, NULL, "calculator%d", MINOR(dev));
+	printk(KERN_INFO"end\n");
 	return 0;
 }
 
@@ -76,6 +100,7 @@ static void __exit cleanup_mod(void){
 	class_destroy(cls);
 	unregister_chrdev_region(dev, 1); 
 	printk(KERN_INFO "%s is unloaded. major:%d\n", __FILE__, MAJOR(dev));
+	printk(KERN_INFO"end1\n");
 }
 
 module_init(init_mod);
