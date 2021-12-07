@@ -1,5 +1,5 @@
 # RobotSystem2021_DeviceDriver
-- Raspberry Pi 4で入力した計算式の計算結果を, LEDを制御し, 2進数で表示するデバイスドライバを作成した.
+- Raspberry Pi 4を使用して, 入力した計算式の計算結果を, LEDを制御し, 2進数で表示するデバイスドライバを作成した.
 ---
 ## 動作環境
 - Ubuntu 20.04.3 LTS
