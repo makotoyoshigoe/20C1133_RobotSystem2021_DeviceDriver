@@ -54,11 +54,11 @@ def main():
     while formula != 'q':
         formula = input('input formula:')#入力
         try:
-            if formula == 'w':
+            if formula == 'w':#順番に点灯する
                 binary = 'w'
             else:
                 ans = eval(formula)
-                if ans >= ERR:#エラー処理(計算結果が4096のとき)
+                if ans >= ERR:#エラー処理(計算結果が4096以上のとき)
                     binary = 'e'
                 else:#通常の処理
                     binary = complement(convert_binary(abs(ans))) if ans < 0 else convert_binary(ans)
