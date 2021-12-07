@@ -16,8 +16,8 @@
 ### 実際に配線した写真
 ![figure](https://user-images.githubusercontent.com/91446273/145028123-3f1e35ad-0464-444b-ad85-98b0b1590e61.png)
 ### 各LEDとGPIOピンの対応表
--- RaspberryPi4のピン配置は以下のサイトを参考にしてください.
--- https://www.raspberrypi.com/documentation/computers/os.html#gpio-and-the-40-pin-header
+- RaspberryPi4のピン配置は以下のサイトを参考にしてください.\n
+  https://www.raspberrypi.com/documentation/computers/os.html#gpio-and-the-40-pin-header
 | LED | GPIO番号 |
 | :-------|:------|
 | LED0 | 21 |
