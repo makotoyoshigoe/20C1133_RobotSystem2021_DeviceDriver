@@ -1,12 +1,12 @@
 # RobotSystem2021_DeviceDriver
-- Raspberry Pi 4を使用して, 入力した計算式の計算結果を, LEDを制御し, 2進数で表示するデバイスドライバを作成した. 4096未満の有理数を表示でき, 整数部分は3Byte, 少数部分は1Byteで表示する. 
+- RaspberryPi4を使用して, 入力した計算式の計算結果を, LEDを制御し, 2進数で表示するデバイスドライバを作成した. 4096未満の有理数を表示でき, 整数部分は3Byte, 少数部分は1Byteで表示する. 
 ---
 ## 動作環境
 - Ubuntu 20.04.3 LTS
 - Raspberry Pi 4
 ---
 ## 使用するもの
-- Raspberry Pi 4
+- RaspberryPi4
 - USBケーブル TypeC
 - ブレッドボード
 - LED, 抵抗(200Ω), ジャンパ線(オス-メス): 各17個
@@ -42,10 +42,17 @@
 | LED16 | 4 |
 ---
 ## 実行方法
+### セットアップ
 ```sh
 git clone https://github.com/makotoyoshigoe/RobotSystem2021_DeviceDriver.git
 cd RobotSystem2021_DeviceDriver
 ./setup.bash
-python3 calc.py
 ```
----
+### pythonスクリプトを実行
+```sh
+python3 calc.py
+#input formula:
+```
+### 計算式を入力
+```
+
