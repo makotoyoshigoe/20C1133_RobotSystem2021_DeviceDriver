@@ -37,3 +37,12 @@
 | LED14 | 18 |
 | LED15 | 17 |
 | LED16 | 4 |
+---
+## 実行方法
+```sh
+git clone 
+cd RobotSystem2021_DeviceDriver
+./setup.bash
+python3 calc.py
+```
+---
