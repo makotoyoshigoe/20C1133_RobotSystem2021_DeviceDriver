@@ -68,3 +68,5 @@ input formula:w
 input formula:q
 #終了する. 
 ```
+---
+# 実際に動かしている様子
