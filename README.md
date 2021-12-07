@@ -14,4 +14,5 @@
 ## 配線図
 - 配線は以下の実際の写真と各LEDとGPIOピンの対応表を参照してください. 
 ### 実際に配線した写真
-
+![figure](https://user-images.githubusercontent.com/91446273/145028123-3f1e35ad-0464-444b-ad85-98b0b1590e61.png)
+### 各LEDとGPIOピンの対応表
