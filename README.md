@@ -86,7 +86,7 @@ input formula:2500+2100
 input formula:15/0
 #this formula cannot be calculated.
 ```
-### #隠し(?)機能
+#### 隠し(?)機能
 ```sh
 input formula:w
 #LEDが順番に点灯する. waveの「w」.
@@ -94,6 +94,11 @@ input formula:w
 #### 終了
 ```sh
 input formula:q
+```
+### デバイスファイルの削除
+```sh
+sudo rmmod calculator
+make clean
 ```
 ---
 ## 実際に動かしている様子
