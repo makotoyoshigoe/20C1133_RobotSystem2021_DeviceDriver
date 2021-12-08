@@ -12,12 +12,14 @@
 - LED, 抵抗(200Ω), ジャンパ線(オス-メス): 各17個
 ---
 ## 配線図
-- 配線を行う際は,以下の実際の写真と各LEDとGPIOピンの対応表を参考にしながら行ってください. 
+- 配線を行う際は,以下の実際の写真と回路図, 各LEDとGPIOピンの対応表を参考にしながら行ってください. 
 ### 実際に配線した写真
 ![figure](https://user-images.githubusercontent.com/91446273/145028123-3f1e35ad-0464-444b-ad85-98b0b1590e61.png)
 - 黄, オレンジ, 赤色のLEDが整数部分を表し 順番に1, 2, 3Byte目を表します. 
 - 緑色のLEDは整数と小数の区切りのピリオドを表しています. 
 - 青色のLEDは小数部分を表します. 
+### 回路図
+![image](https://user-images.githubusercontent.com/91446273/145197159-ac0fda4f-ad1b-4765-875b-e08a885572e3.png)
 ### 各LEDとGPIOピンの対応表
 - RaspberryPi4のピン配置は[こちら](https://www.raspberrypi.com/documentation/computers/os.html#gpio-and-the-40-pin-header)を参考にしてください. 
 
