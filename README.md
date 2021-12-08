@@ -3,7 +3,7 @@
 ---
 ## 動作環境
 - Ubuntu 20.04.3 LTS
-- Raspberry Pi 4
+- RaspberryPi4
 ---
 ## 使用するもの
 - RaspberryPi4
