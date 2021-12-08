@@ -19,7 +19,7 @@
 - 緑色のLEDは整数と小数の区切りのピリオドを表しています. 
 - 青色のLEDは小数部分を表します. 
 ### 回路図
-![image](https://user-images.githubusercontent.com/91446273/145197565-9e7e815c-9743-453b-8652-d5387e8cf6db.png)
+![image](https://user-images.githubusercontent.com/91446273/145198164-654ad622-f4de-467d-a934-a727d276d2cb.png)
 ### 各LEDとGPIOピンの対応表
 - RaspberryPi4のピン配置は[こちら](https://www.raspberrypi.com/documentation/computers/os.html#gpio-and-the-40-pin-header)を参考にしてください. 
 
