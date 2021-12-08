@@ -54,7 +54,7 @@ python3 calc.py
 #input formula:
 ```
 ### 計算式を入力
-####四則演算
+#### 四則演算
 ```sh
 input formula:29+3
 ```
@@ -70,14 +70,14 @@ input formula:12/3
 ```sh
 input formula:ans+4 #ansを入力すると, 前回の計算結果を引き継いで使える. 
 ```
-####小数・負の数の計算
+#### 小数・負の数の計算
 ```sh
 input formula:3.6+7.8
 ```
 ```sh
 input formula:5.7-10.4
 ```
-####エラー処理
+#### エラー処理
 ```sh
 input formula:2500+2100
 #計算結果が4096以上なので, エラー処理(LEDの点滅)を行う.
@@ -86,12 +86,12 @@ input formula:2500+2100
 input formula:15/0
 #this formula cannot be calculated.
 ```
-####隠し(?)機能
+### #隠し(?)機能
 ```sh
 input formula:w
 #LEDが順番に点灯する. waveの「w」.
 ```
-####終了
+#### 終了
 ```sh
 input formula:q
 ```
