@@ -102,4 +102,4 @@ make clean
 ```
 ---
 ## 実際に動かしている様子
-実際に動かしている様子の動画です. 画像をクリック/タップするとYouTubeで再生します. 
+YouTubeリンク: https://youtu.be/hRQb1wQBKWY 
