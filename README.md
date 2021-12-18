@@ -97,9 +97,12 @@ input formula:w
 ```sh
 input formula:q
 ```
-### デバイスファイルの削除
+### デバイスのアンインストール
 ```sh
 sudo rmmod calculator
+```
+### デバイスファイルの削除
+```sh
 make clean
 ```
 ---
