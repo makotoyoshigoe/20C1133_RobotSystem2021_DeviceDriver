@@ -106,5 +106,5 @@ sudo rmmod calculator
 make clean
 ```
 ---
-## 実際に動かしている様子
+## 実際に動作している様子
 YouTubeリンク: https://youtu.be/hRQb1wQBKWY 
